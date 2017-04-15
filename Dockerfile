@@ -10,5 +10,4 @@ COPY script.sh /sbin/
 RUN chown www /sbin/script.sh
 RUN chmod +x /sbin/script.sh
 EXPOSE 80
-EXPOSE 6379
-ENTRYPOINT /bin/sh
+ENTRYPOINT /sbin/script.sh
