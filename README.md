@@ -1,5 +1,5 @@
 # Docker Project
-Dockerfile code is [here](Dockerfile). To run, ensure you have Docker installed, clone the repo, then follow these steps:
+Dockerfile code is [here](Dockerfile). Note that I had to change the Dockerfile to add Redis, set the proper file permissions, set the REDIS_URL environment variable, and I added a script to run Redis and the sreracha Go app. To run, ensure you have Docker installed, clone the repo, then follow these steps:
 
 Build the image:
 ```bash
@@ -13,10 +13,11 @@ docker run -td -P sre-docker
 
 To connect to the running container:
 ```bash
-docker exec -it 8e8cb994311c sh
+docker ps # Get the container id and assigned port
+docker exec -it <container_id> sh
 ```
 
-Issue a `docker ps` command to get the assigned port that binds to port 80 and use your browser to go to `localhost:<port_number>`
+After issuing the `docker ps` command, get the assigned port that binds to port 80 and use your browser to go to `localhost:<port_number>`
 
 Here is the result after going to the page, providing the required query string, and getting back a 200 OK response.
 
